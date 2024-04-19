@@ -6,9 +6,8 @@
 template<typename T, int size>
 class TPQueue {
  private:
-    int c;
-    int begin, end;
-    SYM* arr;
+    int begin, end, count;
+    T *data;
 
  public:
     TPQueue() : count(0), begin(0), end(0), data(new T[size]) {}
