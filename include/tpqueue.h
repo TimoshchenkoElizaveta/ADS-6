@@ -1,12 +1,9 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <string>
 
 template<typename T, int size>
-struct SYM {
-  char ch;
-  int prior;
-};
 class TPQueue {
  private:
     int c;
@@ -14,19 +11,19 @@ class TPQueue {
     SYM* arr;
 
  public:
-    TPQueue() : cnt(0), begin(0), end(0), data(new T[size]) {}
+    TPQueue() : count(0), begin(0), end(0), data(new T[size]) {}
 
     T pop() {
-        if (cnt == 0) {
-            throw std::string("Empty");
+        if (count == 0) {
+            throw std::string("Empty!!!");
         } else {
             count--;
             return data[begin++ % size];
         }
     }
     void push(const T &item) {
-        if (cnt >= size)
-            throw std::string("Full");
+        if (count >= size)
+            throw std::string("Full!!!");
       cnt++;
       int Index = end;
       for (int i = begin; i < end; i++) {
@@ -40,6 +37,11 @@ class TPQueue {
               data[Index % size] = item;
         end++;
     }
+};
+
+struct SYM {
+  char ch;
+  int prior;
 };
 
 
